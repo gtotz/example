@@ -1,0 +1,11 @@
+Options All -Indexes
+
+RewriteEngine On
+RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+RewriteRule ^ /%1 [L,R=301]
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^([^\.]+)$ $1.php [L]
+
+RewriteRule ^menu-pricing/([^/]+) menu-pricing.php?id-detail=$1 [NC]
+RewriteRule ^menu-pricing menu-pricing.php [NC]
